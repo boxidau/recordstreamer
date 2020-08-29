@@ -1,0 +1,3 @@
+#!/bin/bash
+darkice -c darkice.cfg -v 10
+/bin/bash

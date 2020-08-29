@@ -1,0 +1,15 @@
+version: '2'
+services:
+  hlsstream:
+    build: ./hlsstream
+    depends_on:
+      - frontend
+      - data
+    ports:
+      - "80:80"
+    expose:
+      - "1935"
+  rcapture:
+    build: ./rcapture
+    depends_on:
+      - hlsstream
