@@ -1,13 +1,8 @@
 FROM balenalib/%%BALENA_MACHINE_NAME%%-debian
 
 ENV UDEV=1
-RUN install_packages darkice alsa-utils icecast2
+RUN install_packages darkice
 
-COPY . ./
-
-EXPOSE 8000
-
-MKDIR /app/log/icecast2
-# fix permissions
-
-CMD ["./recordstream"]
+COPY darkice.cfg ./
+# CMD ["bash"]
+CMD ["darkice", "-c", "darkice.cfg", "-v", "10"]

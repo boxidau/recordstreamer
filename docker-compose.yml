@@ -1,15 +1,16 @@
 version: '2'
 services:
-  hlsstream:
-    build: ./hlsstream
-    depends_on:
-      - frontend
-      - data
+  icecast:
+    build: ./icecast
     ports:
-      - "80:80"
+      - "8000:8000"
     expose:
-      - "1935"
-  rcapture:
-    build: ./rcapture
+      - "8000"
+  darkice:
+    privileged: true
+    build: ./darkice
     depends_on:
-      - hlsstream
+      - icecast
+  ddns:
+    build: ./ddns
+    network_mode: "host"
