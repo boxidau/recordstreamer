@@ -54,7 +54,7 @@ type deviceInfo struct {
 }
 
 func main() {
-	deviceInfo := getDeviceInfo()
+	deviceInfo := deviceInfo{}
 	for {
 		curDeviceInfo := getDeviceInfo()
 		if curDeviceInfo != deviceInfo {

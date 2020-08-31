@@ -7,7 +7,7 @@ ENV GO111MODULE=on
 
 RUN CGO_ENABLED=0 GOOS=linux go build
 
-FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine-golang:1.14.6-run
+FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine
 COPY --from=build ddns/ddns ./
 
 CMD ["./ddns"]
