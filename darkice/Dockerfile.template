@@ -3,6 +3,5 @@ FROM balenalib/%%BALENA_MACHINE_NAME%%-debian
 ENV UDEV=1
 RUN install_packages darkice
 
-COPY darkice.cfg ./
-# CMD ["bash"]
-CMD ["darkice", "-c", "darkice.cfg", "-v", "10"]
+COPY . ./
+CMD ["./darkice.sh"]
