@@ -2,4 +2,6 @@ FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine
 
 RUN install_packages icecast
 
+COPY icecast.xml /etc/icecast.xml
+
 CMD ["icecast", "-c", "/etc/icecast.xml"]
